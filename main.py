@@ -1,23 +1,23 @@
 """Entry for the make.fun bounty "The Word You'd Delete From the Dictionary".
 
-The single word to erase from the dictionary forever: supposably.
+The single word to erase from the dictionary forever: unthaw.
 
-Why this word: "supposably" is what people say when they mean
-"supposedly" — a word that exists only to let a speaker sound certain
-while using the wrong word. Dictionaries list it only to mark it a
-nonstandard variant, yet it survives because it sounds almost right.
-Deleting it removes the one word that lets a speaker be confidently
-wrong about the very word they chose to sound confident.
+Why this word: "unthaw" argues with itself. "Un-" means to reverse,
+and "thaw" means to melt — so "unthaw" should mean "to freeze". But
+the dictionary says it means "to thaw", the exact thing it claims to
+undo. It is the one word that cannot decide what it means, and every
+time someone uses it, half the room hears the opposite. Deleting it
+removes the only word that means its own opposite.
 """
 
 import os
 
-ENTRY = "supposably"
+ENTRY = "unthaw"
 
-# Why this word earns deletion: a wrong word dressed up as a confident
-# one. "Supposedly" already says "as supposed"; "supposably" exists
-# only as a mistake that sounds almost right.
-REASON = "confident-sounding mistake for supposedly"
+# Why this word earns deletion: a self-contradicting word. "Un-" plus
+# "thaw" should mean "to freeze", yet the dictionary says it means
+# "to thaw" — the exact thing it claims to undo.
+REASON = "a word that means its own opposite"
 
 
 def main():
@@ -39,7 +39,7 @@ def main():
     # and a name is not the kind of word this bounty deletes.
     if word != word.lower():
         raise ValueError("entry must be lowercase (dictionary headword form)")
-    # Two runs write byte-identical output, "supposably" (10 chars).
+    # Two runs write byte-identical output, "unthaw" (6 chars).
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(word)
