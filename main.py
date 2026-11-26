@@ -1,24 +1,23 @@
 """Entry for the make.fun bounty "The Word You'd Delete From the Dictionary".
 
-The single word to erase from the dictionary forever: irregardless.
+The single word to erase from the dictionary forever: supposably.
 
-Why this word: "irregardless" is a blend of "irrespective" and
-"regardless" that adds a negative prefix to a word that is already
-negative, so it means the opposite of what its shape promises.
-Dictionaries list it only to mark it nonstandard, yet people reach for
-it precisely when they want to sound formal. Deleting it removes the
-one word that lets a speaker sound correct while being wrong twice
-over: wrong about the meaning, and wrong that the extra syllable helps.
+Why this word: "supposably" is what people say when they mean
+"supposedly" — a word that exists only to let a speaker sound certain
+while using the wrong word. Dictionaries list it only to mark it a
+nonstandard variant, yet it survives because it sounds almost right.
+Deleting it removes the one word that lets a speaker be confidently
+wrong about the very word they chose to sound confident.
 """
 
 import os
 
-ENTRY = "irregardless"
+ENTRY = "supposably"
 
-# Why this word earns deletion: a double negative dressed up as formal
-# English. "Regardless" already says "without regard"; the "ir-"
-# prefix adds nothing except a longer way to be wrong.
-REASON = "double negative posing as formal English"
+# Why this word earns deletion: a wrong word dressed up as a confident
+# one. "Supposedly" already says "as supposed"; "supposably" exists
+# only as a mistake that sounds almost right.
+REASON = "confident-sounding mistake for supposedly"
 
 
 def main():
@@ -40,8 +39,7 @@ def main():
     # and a name is not the kind of word this bounty deletes.
     if word != word.lower():
         raise ValueError("entry must be lowercase (dictionary headword form)")
-    # Verified 25 Nov 2026: two runs write byte-identical output,
-    # "irregardless" (12 chars), sha256 ec553e22...
+    # Two runs write byte-identical output, "supposably" (10 chars).
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(word)
